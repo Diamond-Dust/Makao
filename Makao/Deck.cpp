@@ -76,7 +76,7 @@ std::vector<Card*> Deck::DrawCards(int number) {
 	std::vector<Card*> cards;
 	while (number--)
 	{
-		Cards.push_back(Cards.back());
+		cards.push_back(Cards.back());
 		Cards.pop_back();
 	}
 	return cards;
@@ -84,7 +84,7 @@ std::vector<Card*> Deck::DrawCards(int number) {
 
 void Deck::Shuffle() {
 	std::srand(unsigned(std::time(0)));
-	std::random_shuffle(&Cards[0], &Cards[cardNumber*NumberOfDecks]);
+	std::random_shuffle(Cards.begin(), Cards.end());
 }
 
 Deck::~Deck() {
