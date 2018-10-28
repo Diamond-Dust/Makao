@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Card Ranks">
+      <UniqueIdentifier>{06165390-4b81-4a61-a6e8-3a94cca11f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Card Ranks">
+      <UniqueIdentifier>{e9cdcc5d-d9ba-47e8-8add-684942faaa8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Makao.cpp">
@@ -30,6 +36,24 @@
     <ClCompile Include="Validity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Three.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="Two.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="Four.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="Ace.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="Valet.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="King.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -46,6 +70,27 @@
     </ClInclude>
     <ClInclude Include="Cards.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ace.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Three.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Two.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Four.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Valet.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="King.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionalCards.h">
+      <Filter>Header Files\Card Ranks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 #pragma once
 
-
 enum class cSuit {
 	Hearts,
 	Tiles,

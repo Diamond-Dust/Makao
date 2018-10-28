@@ -1,5 +1,6 @@
 #pragma once
 #include "Card.h"
+#include "FunctionalCards.h"
 #include <vector>
 #include <stdlib.h>
 #include <algorithm>

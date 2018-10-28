@@ -12,11 +12,13 @@ void Stack::Put(std::vector<Card*> nexts) {
 }
 
 Stack::Stack() {
+	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
 	stopStack = 0;
 }
 
 Stack::Stack(Card * start) {
+	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
 	stopStack = 0;
 	BottomCards.push_back(start);
@@ -24,7 +26,7 @@ Stack::Stack(Card * start) {
 }
 
 bool Stack::TryCards(Card * card) {
-	if (CanBePut(TopCard, *card, drawStack, desiredCard, stopStack))
+	if (CanBePut(TopCard, *card, drawStack, desiredSuit, desiredCard, stopStack))
 	{
 		Put(card);
 		return true;
@@ -40,13 +42,17 @@ bool Stack::TryCards(std::vector<Card*> cards) {
 			return false;
 	}
 
-	if (CanBePut(TopCard, *cards[0], drawStack, desiredCard, stopStack))
+	if (CanBePut(TopCard, *cards[0], drawStack, desiredSuit, desiredCard, stopStack))
 	{
 		Put(cards);
 		return true;
 	}
 	else
 		return false;
+}
+
+cSuit Stack::getDesiredSuit() {
+	return desiredSuit;
 }
 
 cRank Stack::getDesiredCard() {

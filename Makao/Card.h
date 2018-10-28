@@ -9,5 +9,6 @@ class Card {
 		cRank Rank;
 		cSuit Suit;
 		bool Functional;
+		void Function(std::vector<int> drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack) = 0;
 		~Card();
 };

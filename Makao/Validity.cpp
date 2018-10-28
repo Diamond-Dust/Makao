@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool CanBePut(Card first, Card next, std::vector<int> drawStack, cRank desiredCard, int stopStack) {
+bool CanBePut(Card first, Card next, std::vector<int> drawStack, cSuit desiredSuit, cRank desiredCard, int stopStack) {
 	if (stopStack != 0)
 	{
 		if (next.Rank != cRank::Four)
@@ -29,6 +29,13 @@ bool CanBePut(Card first, Card next, std::vector<int> drawStack, cRank desiredCa
 				else
 					return false;
 			}
+		}
+		else if (desiredSuit != cSuit::None)
+		{
+			if ((next.Rank == cRank::Ace) || (next.Suit == desiredSuit))	//If card matches
+				return true;
+			else
+				return false;
 		}
 		else
 		{

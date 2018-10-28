@@ -6,6 +6,7 @@ class Stack {
 	private:
 		std::vector<Card*> BottomCards;
 		std::vector<int> drawStack;
+		cSuit desiredSuit;
 		cRank desiredCard;
 		int stopStack;
 		Card TopCard;
@@ -16,6 +17,7 @@ class Stack {
 		Stack(Card* start);
 		bool TryCards(Card* card);
 		bool TryCards(std::vector<Card*> cards);
+		cSuit getDesiredSuit();
 		cRank getDesiredCard();
 		std::vector<int> getDrawStack();
 		Card getTopCard();

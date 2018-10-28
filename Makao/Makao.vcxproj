@@ -142,17 +142,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ace.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Four.cpp" />
+    <ClCompile Include="King.cpp" />
     <ClCompile Include="Makao.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="Three.cpp" />
+    <ClCompile Include="Two.cpp" />
+    <ClCompile Include="Valet.cpp" />
     <ClCompile Include="Validity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ace.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Four.h" />
+    <ClInclude Include="FunctionalCards.h" />
+    <ClInclude Include="King.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Three.h" />
+    <ClInclude Include="Two.h" />
+    <ClInclude Include="Valet.h" />
     <ClInclude Include="Validity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
