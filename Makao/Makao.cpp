@@ -5,7 +5,8 @@
 int main()
 {
 	Stack* stack = new Stack(new Card(cRank::Queen, cSuit::Hearts));
-	stack->TryCards(new Card(cRank::King, cSuit::Hearts));
+	stack->TryCards(new King(cSuit::Hearts));
+	
 	Deck* deck = new Deck;
 	deck->Shuffle();
 	std::vector<Card*> cards = deck->DrawCards(5);

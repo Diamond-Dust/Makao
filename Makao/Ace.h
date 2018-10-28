@@ -9,5 +9,5 @@ class Ace : public Card {
 		Ace();
 		Ace(cSuit suit);
 		void setDesiredSuit(cSuit suit);
-		void Function(std::vector<int> drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
+		void Function(std::vector<int>& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
 };

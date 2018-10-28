@@ -8,7 +8,7 @@ King::King(cSuit suit) : Card(cRank::King, suit) {
 
 }
 
-void King::Function(std::vector<int> drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
+void King::Function(std::vector<int>& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
 	if (this->Suit == cSuit::Hearts || this->Suit == cSuit::Spades)
 		drawStack.push_back(5);
 }

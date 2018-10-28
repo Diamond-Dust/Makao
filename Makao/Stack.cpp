@@ -2,11 +2,14 @@
 #include "Validity.h"
 
 void Stack::Put(Card * next) {
+	next->Function(drawStack, desiredSuit, desiredCard, stopStack);
 	BottomCards.push_back(next);
 	TopCard = *BottomCards.back();
 }
 
 void Stack::Put(std::vector<Card*> nexts) {
+	for (int i = 0; i < nexts.size(); i++)
+		nexts[i]->Function(drawStack, desiredSuit, desiredCard, stopStack);
 	BottomCards.insert(BottomCards.end(), nexts.begin(), nexts.end());
 	TopCard = *BottomCards.back();
 }
