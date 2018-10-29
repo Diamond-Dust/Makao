@@ -106,9 +106,9 @@ int Deck::getCardNumber() {
 }
 
 Deck::~Deck() {
-	/*while (!Cards.empty())
+	while (!Cards.empty())
 	{
 		delete Cards.back();
 		Cards.pop_back();
-	}*/
+	}
 }

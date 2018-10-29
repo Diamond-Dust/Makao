@@ -18,16 +18,22 @@ int main()
 	for (int i = 0; i < 4; i++)
 		players.push_back(new Player());
 	std::vector<int> results;
+	std::vector<int> fullResults;
+	for (int i = 0; i < 4; i++)
+		fullResults.push_back(0);
 
-	
-	while (true)
+	int N = 10000;
+	while (N--)
 	{
 		game->AddPlayer(players);
 		game->SetUp();
 		results = game->Play();
+		for (int i = 0; i < 4; i++)
+			fullResults[i] += results[i];
 		game->Clear();
 	}
-	
+	for (int i = 0; i < 4; i++)
+		printf("%d\n", fullResults[i]);
 
     return 0;
 }
