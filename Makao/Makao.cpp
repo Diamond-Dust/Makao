@@ -19,10 +19,15 @@ int main()
 		players.push_back(new Player());
 	std::vector<int> results;
 
-	game->AddPlayer(players);
-	game->SetUp();
-	results = game->Play();
-	game->Clear();
+	
+	while (true)
+	{
+		game->AddPlayer(players);
+		game->SetUp();
+		results = game->Play();
+		game->Clear();
+	}
+	
 
     return 0;
 }

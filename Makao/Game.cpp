@@ -40,18 +40,26 @@ void Game::SetUp() {
 
 std::vector<int> Game::Play() {
 	std::vector<int> results;
+	std::vector<bool> finished;
 	for (int i = 0; i < players.size(); i++)
 	{
 		results.push_back(0);
+		finished.push_back(false);
 	}
-	int currentPrize = 3, moveResult;
+	int currentPrize = 3, moveResult, playerCount = players.size();
 	Card* drawnCard;
 	std::vector<Card*> drawnCards;
+	int counter = 0;
 
-	while(players.size() != 1)
+	while (playerCount > 1)
+	{
 		for (int i = 0; i < players.size(); i++)
 		{
-			moveResult = players[i]->MakeAMove(stack);
+			if (finished[i])	//If player already finished
+				continue;
+
+			moveResult = players[i]->MakeAMove(stack);	//Make a move
+
 			if (moveResult == -1)	//no move
 			{
 				if (stack->getDrawStack() != 0)	//draw drawStack
@@ -67,7 +75,7 @@ std::vector<int> Game::Play() {
 				}
 				else	//draw a card
 				{
-					drawnCard = deck->DrawCards();	
+					drawnCard = deck->DrawCards();
 					if (drawnCard != nullptr)
 						players[i]->DrawCard(drawnCard);
 				}
@@ -75,13 +83,22 @@ std::vector<int> Game::Play() {
 			else if (moveResult == 0)	//player won
 			{
 				results[i] = currentPrize--;
-				players.erase(players.begin() + i);
+				finished[i] = true;
+				playerCount--;
+				//players.erase(players.begin() + i);
 			}
 
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
 				deck->PutCards(stack->RemoveBottom());
-			
+
+			if (players.size() > i)
+				printf("%d:\t%d\t%d\n", counter++, i, players[i]->getCardNumber());
+			//counter++;
 		}
+
+		
+	}
+		
 
 	return results;
 }

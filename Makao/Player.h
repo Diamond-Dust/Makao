@@ -16,5 +16,6 @@ private:
 public:
 	Player();
 	int MakeAMove(Stack* stack);
+	int getCardNumber();
 	~Player();
 };

@@ -79,10 +79,10 @@ std::vector<Card*> Deck::DrawCards(int number) {
 	std::vector<Card*> cards;
 	while (number--)
 	{
-		cards.push_back(Cards.back());
-		Cards.pop_back();
 		if (Cards.size() == 0)
 			break;
+		cards.push_back(Cards.back());
+		Cards.pop_back();
 	}
 	return cards;
 }
@@ -106,9 +106,9 @@ int Deck::getCardNumber() {
 }
 
 Deck::~Deck() {
-	while (!Cards.empty())
+	/*while (!Cards.empty())
 	{
 		delete Cards.back();
 		Cards.pop_back();
-	}
+	}*/
 }

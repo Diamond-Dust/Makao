@@ -29,5 +29,9 @@ int Player::MakeAMove(Stack * stack) {
 	return -1;	//! return -1 if you can't make a move or want to draw a card
 }
 
+int Player::getCardNumber() {
+	return Hand.size();
+}
+
 Player::~Player() {
 }
