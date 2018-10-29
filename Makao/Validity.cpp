@@ -4,7 +4,9 @@
 #include <algorithm>
 
 bool CanBePut(Card first, Card next, std::vector<int> drawStack, cSuit desiredSuit, cRank desiredCard, int stopStack) {
-	if (stopStack != 0)
+	if (first.Rank == cRank::Joker)
+		return true;
+	else if (stopStack != 0)
 	{
 		if (next.Rank != cRank::Four)
 			return false;

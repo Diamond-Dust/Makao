@@ -8,16 +8,19 @@
 #include <cstdlib>
 
 class Deck {
+	friend class Game;
 	private:
 		const int cardNumber = 52;
 		std::vector<Card*> Cards;
 		//const int cardShortNumber = 24;
+		void PutCards(Card* card);
+		void PutCards(std::vector<Card*> cards);
+		std::vector<Card*> DrawCards(int number);
 	public:
 		Deck();
 		Deck(int numOfDecks);
-		int NumberOfDecks;
+		const int NumberOfDecks;
 		Card* DrawCards();
-		std::vector<Card*> DrawCards(int number);
 		void Shuffle();
 		~Deck();
 };

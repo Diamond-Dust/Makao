@@ -146,8 +146,10 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Four.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Makao.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Three.cpp" />
     <ClCompile Include="Two.cpp" />
@@ -161,7 +163,9 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Four.h" />
     <ClInclude Include="FunctionalCards.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="King.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Three.h" />
     <ClInclude Include="Two.h" />

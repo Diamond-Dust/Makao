@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Card Ranks">
       <UniqueIdentifier>{e9cdcc5d-d9ba-47e8-8add-684942faaa8a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Players">
+      <UniqueIdentifier>{1885524d-1b66-4e76-81a8-7e90871a367f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Players">
+      <UniqueIdentifier>{98b7dcef-758f-492e-9ae7-1c0143c83e25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Makao.cpp">
@@ -53,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="King.cpp">
       <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Players</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="FunctionalCards.h">
       <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Players</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
