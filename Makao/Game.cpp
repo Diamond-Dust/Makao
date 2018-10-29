@@ -49,7 +49,6 @@ std::vector<int> Game::Play() {
 	int currentPrize = 3, moveResult, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
 	Card* drawnCard;
 	std::vector<Card*> drawnCards;
-	int counter = 0;
 
 	while (playerCount > 1)
 	{
@@ -96,13 +95,7 @@ std::vector<int> Game::Play() {
 
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
 				deck->PutCards(stack->RemoveBottom());
-
-			if (players.size() > i)
-				printf("%d:\t%d\t%d\n", counter, i, players[i]->getCardNumber());
 		}
-		printf("\n");
-		counter++;
-		
 	}
 		
 
