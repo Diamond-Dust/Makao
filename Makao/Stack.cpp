@@ -26,6 +26,7 @@ std::vector<Card*> Stack::RemoveBottom() {
 	Card* topCard = BottomCards.back();
 	BottomCards.pop_back();
 	std::vector<Card*> bottom = BottomCards;
+	BottomCards.clear();
 	BottomCards.push_back(topCard);
 	return bottom;
 }

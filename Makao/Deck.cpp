@@ -93,7 +93,9 @@ void Deck::PutCards(Card * card) {
 }
 
 void Deck::PutCards(std::vector<Card*> cards) {
-	Cards.insert(std::end(Cards), std::begin(cards), std::end(cards));
+	std::srand(unsigned(std::time(0)));
+	std::random_shuffle(cards.begin(), cards.end());
+	Cards.insert(std::begin(Cards), std::begin(cards), std::end(cards));
 }
 
 void Deck::Shuffle() {
