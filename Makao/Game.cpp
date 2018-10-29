@@ -46,7 +46,7 @@ std::vector<int> Game::Play() {
 		results.push_back(0);
 		finished.push_back(false);
 	}
-	int currentPrize = 3, moveResult, playerCount = players.size();
+	int currentPrize = 3, moveResult, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
 	Card* drawnCard;
 	std::vector<Card*> drawnCards;
 	int counter = 0;
@@ -57,6 +57,10 @@ std::vector<int> Game::Play() {
 		{
 			if (finished[i])	//If player already finished
 				continue;
+			else if (i == stoppedPlayer && stoppedAmount != 0)	//If player was stopped
+			{
+				stoppedAmount--;
+			}
 
 			moveResult = players[i]->MakeAMove(stack);	//Make a move
 
@@ -71,7 +75,9 @@ std::vector<int> Game::Play() {
 				}
 				else if (stack->getStopStack() != 0)
 				{
-					stack->clearStopStack();	//! TODO: IMPLEMENT STOPSTACK
+					stoppedAmount = stack->getStopStack();
+					stoppedPlayer = i;
+					stack->clearStopStack();
 				}
 				else	//draw a card
 				{
@@ -92,10 +98,10 @@ std::vector<int> Game::Play() {
 				deck->PutCards(stack->RemoveBottom());
 
 			if (players.size() > i)
-				printf("%d:\t%d\t%d\n", counter++, i, players[i]->getCardNumber());
-			//counter++;
+				printf("%d:\t%d\t%d\n", counter, i, players[i]->getCardNumber());
 		}
-
+		printf("\n");
+		counter++;
 		
 	}
 		
