@@ -12,6 +12,6 @@ void Ace::setDesiredSuit(cSuit suit) {
 		this->desiredSuit = suit;
 }
 
-void Ace::Function(std::vector<int>& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
+void Ace::Function(int& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
 	desiredSuit = this->desiredSuit;
 }

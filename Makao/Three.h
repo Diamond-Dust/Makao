@@ -6,5 +6,5 @@ class Three : public Card {
 	public:
 		Three();
 		Three(cSuit suit);
-		void Function(std::vector<int>& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
+		void Function(int& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
 };

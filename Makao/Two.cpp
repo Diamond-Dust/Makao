@@ -8,6 +8,6 @@ Two::Two(cSuit suit) : Card(cRank::Two, suit) {
 
 }
 
-void Two::Function(std::vector<int>& drawStack, cSuit& desiredSuit, cRank & desiredCard, int & stopStack) {
-	drawStack.push_back(2);
+void Two::Function(int& drawStack, cSuit& desiredSuit, cRank & desiredCard, int & stopStack) {
+	drawStack+=2;
 }

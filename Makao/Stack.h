@@ -3,15 +3,19 @@
 #include <vector>
 
 class Stack {
+	friend class Game;
 	private:
 		std::vector<Card*> BottomCards;
-		std::vector<int> drawStack;
+		int drawStack;
 		cSuit desiredSuit;
 		cRank desiredCard;
 		int stopStack;
 		Card TopCard;
 		void Put(Card* next);
 		void Put(std::vector<Card*> nexts);
+		void clearDrawStack();
+		void clearStopStack();
+		std::vector<Card*> RemoveBottom();
 	public:
 		Stack();
 		Stack(Card* start);
@@ -19,7 +23,7 @@ class Stack {
 		bool TryCards(std::vector<Card*> cards);
 		cSuit getDesiredSuit();
 		cRank getDesiredCard();
-		std::vector<int> getDrawStack();
+		int getDrawStack();
 		Card getTopCard();
 		int getStopStack();
 		~Stack();

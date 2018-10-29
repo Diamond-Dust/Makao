@@ -11,8 +11,10 @@ class Player {
 private:
 	std::vector<Card*> Hand;
 	void SetCards(std::vector<Card*> cards);
+	void DrawCard(Card* card);
+	void DrawCard(std::vector<Card*> cards);
 public:
 	Player();
-	int MakeAMove(Stack* stack, Deck* deck);
+	int MakeAMove(Stack* stack);
 	~Player();
 };

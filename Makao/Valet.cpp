@@ -15,6 +15,6 @@ void Valet::setDesiredRank(cRank rank) {
 		desiredRank = rank;
 }
 
-void Valet::Function(std::vector<int>& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
+void Valet::Function(int& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
 	desiredCard = desiredRank;
 }

@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool CanBePut(Card first, Card next, std::vector<int> drawStack, cSuit desiredSuit, cRank desiredCard, int stopStack) {
+bool CanBePut(Card first, Card next, int drawStack, cSuit desiredSuit, cRank desiredCard, int stopStack) {
 	if (first.Rank == cRank::Joker)
 		return true;
 	else if (stopStack != 0)
@@ -13,7 +13,7 @@ bool CanBePut(Card first, Card next, std::vector<int> drawStack, cSuit desiredSu
 		else
 			return true;
 	}
-	else if (drawStack.empty())	//If there is no draw pending
+	else if (drawStack == 0)	//If there is no draw pending
 	{
 		if (desiredCard != cRank::Joker)	//if Valet was played
 		{

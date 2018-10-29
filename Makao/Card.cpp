@@ -12,7 +12,7 @@ Card::Card(cRank rank, cSuit suit) : Rank(rank), Suit(suit) {
 		Functional = false;
 }
 
-void Card::Function(std::vector<int>& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
+void Card::Function(int& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
 }
 
 Card::~Card() {

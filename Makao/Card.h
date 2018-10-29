@@ -10,6 +10,6 @@ class Card {
 		cRank Rank;
 		cSuit Suit;
 		bool Functional;
-		virtual void Function(std::vector<int>& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
+		virtual void Function(int& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
 		~Card();
 };

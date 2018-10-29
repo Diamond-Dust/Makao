@@ -68,6 +68,8 @@ Deck::Deck(int numOfDecks) : NumberOfDecks(numOfDecks) {
 }
 
 Card * Deck::DrawCards() {
+	if (Cards.size() == 0)
+		return nullptr;
 	Card* last = Cards.back();
 	Cards.pop_back();
 	return last;
@@ -79,6 +81,8 @@ std::vector<Card*> Deck::DrawCards(int number) {
 	{
 		cards.push_back(Cards.back());
 		Cards.pop_back();
+		if (Cards.size() == 0)
+			break;
 	}
 	return cards;
 }
@@ -95,6 +99,10 @@ void Deck::PutCards(std::vector<Card*> cards) {
 void Deck::Shuffle() {
 	std::srand(unsigned(std::time(0)));
 	std::random_shuffle(Cards.begin(), Cards.end());
+}
+
+int Deck::getCardNumber() {
+	return Cards.size();
 }
 
 Deck::~Deck() {

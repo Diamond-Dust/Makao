@@ -8,6 +8,6 @@ Three::Three(cSuit suit) : Card(cRank::Three, suit) {
 
 }
 
-void Three::Function(std::vector<int>& drawStack, cSuit& desiredSuit, cRank & desiredCard, int & stopStack) {
-	drawStack.push_back(3);
+void Three::Function(int& drawStack, cSuit& desiredSuit, cRank & desiredCard, int & stopStack) {
+	drawStack+=3;
 }

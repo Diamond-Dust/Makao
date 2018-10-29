@@ -14,6 +14,22 @@ void Stack::Put(std::vector<Card*> nexts) {
 	TopCard = *BottomCards.back();
 }
 
+void Stack::clearDrawStack() {
+	drawStack = 0;
+}
+
+void Stack::clearStopStack() {
+	stopStack = 0;
+}
+
+std::vector<Card*> Stack::RemoveBottom() {
+	Card* topCard = BottomCards.back();
+	BottomCards.clear();
+	std::vector<Card*> bottom = BottomCards;
+	BottomCards.push_back(topCard);
+	return bottom;
+}
+
 Stack::Stack() {
 	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
@@ -62,8 +78,8 @@ cRank Stack::getDesiredCard() {
 	return desiredCard;
 }
 
-std::vector<int> Stack::getDrawStack() {
-	return std::vector<int>(drawStack);
+int Stack::getDrawStack() {
+	return drawStack;
 }
 
 Card Stack::getTopCard() {

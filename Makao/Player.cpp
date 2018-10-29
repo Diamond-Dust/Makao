@@ -3,11 +3,19 @@
 Player::Player() {
 }
 
+void Player::DrawCard(Card * card) {
+	Hand.push_back(card);
+}
+
+void Player::DrawCard(std::vector<Card*> cards) {
+	Hand.insert(Hand.end(), cards.begin(), cards.end());
+}
+
 void Player::SetCards(std::vector<Card*> cards) {
 	Hand = cards;
 }
 
-int Player::MakeAMove(Stack * stack, Deck * deck) {
+int Player::MakeAMove(Stack * stack) {
 	for (int i = 0; i < Hand.size(); i++)
 	{
 		if (CanBePut(stack->getTopCard(), *Hand[i], stack->getDrawStack(), stack->getDesiredSuit(), stack->getDesiredCard(), stack->getStopStack()))
@@ -18,8 +26,7 @@ int Player::MakeAMove(Stack * stack, Deck * deck) {
 		}
 	}
 
-	Hand.push_back(deck->DrawCards());	//! Can only draw one card and must return -1 then
-	return -1;
+	return -1;	//! return -1 if you can't make a move or want to draw a card
 }
 
 Player::~Player() {

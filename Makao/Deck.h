@@ -22,5 +22,6 @@ class Deck {
 		const int NumberOfDecks;
 		Card* DrawCards();
 		void Shuffle();
+		int getCardNumber();
 		~Deck();
 };

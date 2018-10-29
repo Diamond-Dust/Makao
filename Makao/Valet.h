@@ -9,5 +9,5 @@ class Valet : public Card {
 		Valet();
 		Valet(cSuit suit);
 		void setDesiredRank(cRank rank);
-		void Function(std::vector<int>& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
+		void Function(int& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
 };
