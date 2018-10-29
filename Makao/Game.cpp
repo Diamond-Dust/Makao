@@ -40,7 +40,10 @@ void Game::SetUp() {
 
 std::vector<int> Game::Play() {
 	std::vector<int> results;
-	results.reserve(players.size());
+	for (int i = 0; i < players.size(); i++)
+	{
+		results.push_back(0);
+	}
 	int currentPrize = 3, moveResult;
 	Card* drawnCard;
 	std::vector<Card*> drawnCards;
