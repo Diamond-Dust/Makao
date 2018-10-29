@@ -34,12 +34,14 @@ Stack::Stack() {
 	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
 	stopStack = 0;
+	drawStack = 0;
 }
 
 Stack::Stack(Card * start) {
 	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
 	stopStack = 0;
+	drawStack = 0;
 	BottomCards.push_back(start);
 	TopCard = *BottomCards.back();
 }

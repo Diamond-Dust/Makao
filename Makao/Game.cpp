@@ -62,10 +62,12 @@ std::vector<int> Game::Play() {
 				{
 					stack->clearStopStack();	//! TODO: IMPLEMENT STOPSTACK
 				}
-
-				drawnCard = deck->DrawCards();	//draw a card
-				if (drawnCard != nullptr)
-					players[i]->DrawCard(drawnCard);
+				else	//draw a card
+				{
+					drawnCard = deck->DrawCards();	
+					if (drawnCard != nullptr)
+						players[i]->DrawCard(drawnCard);
+				}
 			}
 			else if (moveResult == 0)	//player won
 			{
