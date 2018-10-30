@@ -15,18 +15,20 @@ void Player::SetCards(std::vector<Card*> cards) {
 	Hand = cards;
 }
 
-int Player::MakeAMove(Stack * stack) {
+std::vector<Card*> Player::MakeAMove(Stack * stack) {
+	std::vector<Card*> thrownCards;
+
 	for (int i = 0; i < Hand.size(); i++)
 	{
 		if (CanBePut(stack->getTopCard(), *Hand[i], stack->getDrawStack(), stack->getDesiredSuit(), stack->getDesiredCard(), stack->getStopStack()))
 		{
-			if (stack->TryCards(Hand[i]))		//! Can only remove card from hand if TryCards returns true for them
-				Hand.erase(Hand.begin() + i);
-			return Hand.size();					//! Must return number of cards left in hand if not drawing
+			thrownCards.push_back(Hand[i]);
+			Hand.erase(Hand.begin() + i);
+			break;
 		}
 	}
 
-	return -1;	//! return -1 if you can't make a move or want to draw a card
+	return thrownCards;
 }
 
 int Player::getCardNumber() {

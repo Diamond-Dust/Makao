@@ -46,9 +46,9 @@ std::vector<int> Game::Play() {
 		results.push_back(0);
 		finished.push_back(false);
 	}
-	int currentPrize = 3, moveResult, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
+	int currentPrize = 3, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
 	Card* drawnCard;
-	std::vector<Card*> drawnCards, lastHand;
+	std::vector<Card*> drawnCards, lastHand, moveResult;
 
 	while (playerCount > 1)
 	{
@@ -64,7 +64,13 @@ std::vector<int> Game::Play() {
 
 			moveResult = players[i]->MakeAMove(stack);	//Make a move
 
-			if (moveResult == -1)	//no move
+			if (moveResult.size() != 0 && !stack->TryCards(moveResult))	//Move was invalid
+			{
+				players[i]->DrawCard(moveResult);
+				moveResult.clear();
+			}
+
+			if (moveResult.size() == 0)	//no move
 			{
 				if (stack->getDrawStack() != 0)	//draw drawStack
 				{
@@ -86,7 +92,7 @@ std::vector<int> Game::Play() {
 						players[i]->DrawCard(drawnCard);
 				}
 			}
-			else if (moveResult == 0)	//player won
+			else if (players[i]->getCardNumber() == 0)	//player won
 			{
 				results[i] = currentPrize--;
 				finished[i] = true;
