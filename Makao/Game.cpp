@@ -126,6 +126,7 @@ std::vector<int> Game::Play() {
 
 void Game::Clear() {
 	deck->Shuffle();
+	deck->ResetValetsAndAces();
 	players.clear();
 }
 

@@ -87,6 +87,16 @@ std::vector<Card*> Deck::DrawCards(int number) {
 	return cards;
 }
 
+void Deck::ResetValetsAndAces() {
+	for (int i = 0; i < Cards.size(); i++)
+	{
+		if (Cards[i]->Rank == cRank::Ace)
+			static_cast<Ace*>(Cards[i])->setDesiredSuit(cSuit::None);
+		else if (Cards[i]->Rank == cRank::Joker)
+			static_cast<Valet*>(Cards[i])->setDesiredRank(cRank::Joker);
+	}
+}
+
 void Deck::PutCards(Card * card) {
 	Cards.push_back(card);
 	Shuffle();

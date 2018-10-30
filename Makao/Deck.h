@@ -16,6 +16,7 @@ class Deck {
 		void PutCards(Card* card);
 		void PutCards(std::vector<Card*> cards);
 		std::vector<Card*> DrawCards(int number);
+		void ResetValetsAndAces();
 	public:
 		Deck();
 		Deck(int numOfDecks);
