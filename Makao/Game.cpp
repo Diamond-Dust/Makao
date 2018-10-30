@@ -120,7 +120,9 @@ std::vector<int> Game::Play() {
 }
 
 void Game::Clear() {
-	deck->Shuffle();
+	delete deck;
+	deck = new Deck();
+	//deck->Shuffle();
 	players.clear();
 }
 
