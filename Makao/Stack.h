@@ -15,6 +15,7 @@ class Stack {
 		void Put(std::vector<Card*> nexts);
 		void clearDrawStack();
 		void clearStopStack();
+		std::vector<Card*> Clear();
 		std::vector<Card*> RemoveBottom();
 	public:
 		Stack();

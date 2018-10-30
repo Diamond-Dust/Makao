@@ -22,6 +22,16 @@ void Stack::clearStopStack() {
 	stopStack = 0;
 }
 
+std::vector<Card*> Stack::Clear() {
+	std::vector<Card*> cards = BottomCards;
+	BottomCards.clear();
+	desiredSuit = cSuit::None;
+	desiredCard = cRank::Joker;
+	stopStack = 0;
+	drawStack = 0;
+	return cards;
+}
+
 std::vector<Card*> Stack::RemoveBottom() {
 	Card* topCard = BottomCards.back();
 	BottomCards.pop_back();

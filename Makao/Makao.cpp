@@ -31,6 +31,7 @@ int main()
 		for (int i = 0; i < 4; i++)
 			fullResults[i] += results[i];
 		game->Clear();
+		printf("\t%d\n", N);
 	}
 	for (int i = 0; i < 4; i++)
 		printf("%d\n", fullResults[i]);

@@ -48,7 +48,7 @@ std::vector<int> Game::Play() {
 	}
 	int currentPrize = 3, moveResult, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
 	Card* drawnCard;
-	std::vector<Card*> drawnCards;
+	std::vector<Card*> drawnCards, lastHand;
 
 	while (playerCount > 1)
 	{
@@ -101,16 +101,25 @@ std::vector<int> Game::Play() {
 				deck->PutCards(stack->RemoveBottom());
 		}
 	}
+
+	for (int i = 0; i < players.size(); i++)
+	{
+		if (finished[i] == false)
+		{
+			lastHand = players[i]->Hand;	//get cards from last player to deck
+			players[i]->Hand.clear();
+			deck->PutCards(lastHand);
+
+			lastHand = stack->Clear();	//get cards from stack
+			deck->PutCards(lastHand);
+		}
 		
+	}		
 
 	return results;
 }
 
 void Game::Clear() {
-	delete stack;
-	delete deck;
-	stack = new Stack();
-	deck = new Deck();
 	deck->Shuffle();
 	players.clear();
 }
