@@ -27,8 +27,13 @@ std::vector<Card*> Stack::Clear() {
 	BottomCards.clear();
 	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
+	TopCard = Card(cRank::Joker, cSuit::None);
 	stopStack = 0;
 	drawStack = 0;
+
+	if (BottomCards.size() != 0)
+		printf("NO\n");
+
 	return cards;
 }
 
@@ -44,6 +49,7 @@ std::vector<Card*> Stack::RemoveBottom() {
 Stack::Stack() {
 	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
+	TopCard = Card(cRank::Joker, cSuit::None);
 	stopStack = 0;
 	drawStack = 0;
 }
@@ -51,6 +57,7 @@ Stack::Stack() {
 Stack::Stack(Card * start) {
 	desiredSuit = cSuit::None;
 	desiredCard = cRank::Joker;
+	TopCard = Card(cRank::Joker, cSuit::None);
 	stopStack = 0;
 	drawStack = 0;
 	BottomCards.push_back(start);

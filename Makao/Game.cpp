@@ -54,6 +54,7 @@ std::vector<int> Game::Play() {
 	{
 		for (int i = 0; i < players.size(); i++)
 		{
+
 			if (finished[i])	//If player already finished
 				continue;
 			else if (i == stoppedPlayer && stoppedAmount != 0)	//If player was stopped
@@ -90,6 +91,9 @@ std::vector<int> Game::Play() {
 				results[i] = currentPrize--;
 				finished[i] = true;
 				playerCount--;
+
+				if (currentPrize == 0)	//last man standing
+					break;
 				//players.erase(players.begin() + i);
 			}
 			else if (stack->getTopCard().Rank == cRank::King && stack->getTopCard().Suit == cSuit::Spades)	//If King of Spades, the drawStack goes backwards one player
@@ -112,17 +116,16 @@ std::vector<int> Game::Play() {
 
 			lastHand = stack->Clear();	//get cards from stack
 			deck->PutCards(lastHand);
+
+			break;
 		}
-		
 	}		
 
 	return results;
 }
 
 void Game::Clear() {
-	delete deck;
-	deck = new Deck();
-	//deck->Shuffle();
+	deck->Shuffle();
 	players.clear();
 }
 
