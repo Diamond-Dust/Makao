@@ -39,12 +39,14 @@ void Game::SetUp() {
 }
 
 std::vector<int> Game::Play() {
-	std::vector<int> results;
+	std::vector<int> results, otherPlayersCards;
 	std::vector<bool> finished;
 	for (int i = 0; i < players.size(); i++)
 	{
 		results.push_back(0);
 		finished.push_back(false);
+		if(i > 0)
+			otherPlayersCards.push_back(players[i % players.size()]->getCardNumber());
 	}
 	int currentPrize = 3, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
 	Card* drawnCard;
@@ -62,7 +64,10 @@ std::vector<int> Game::Play() {
 				stoppedAmount--;
 			}
 
-			moveResult = players[i]->MakeAMove(stack);	//Make a move
+			moveResult = players[i]->MakeAMove(stack, otherPlayersCards);	//Make a move
+
+			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
+			otherPlayersCards.push_back(players[i]->getCardNumber());
 
 			if (moveResult.size() != 0 && !stack->TryCards(moveResult))	//Move was invalid
 			{

@@ -15,7 +15,7 @@ private:
 	void DrawCard(std::vector<Card*> cards);
 public:
 	Player();
-	virtual std::vector<Card*> MakeAMove(Stack* stack);
+	virtual std::vector<Card*> MakeAMove(Stack* stack, std::vector<int> otherPlayersCards);
 	int getCardNumber();
 	~Player();
 };
