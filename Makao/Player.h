@@ -9,10 +9,11 @@
 class Player {
 	friend class Game;
 private:
-	std::vector<Card*> Hand;
 	void SetCards(std::vector<Card*> cards);
 	void DrawCard(Card* card);
 	void DrawCard(std::vector<Card*> cards);
+protected:
+	std::vector<Card*> Hand;
 public:
 	Player();
 	virtual std::vector<Card*> MakeAMove(Stack* stack, std::vector<int> otherPlayersCards);
