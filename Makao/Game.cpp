@@ -120,7 +120,11 @@ std::vector<int> Game::Play() {
 			}
 
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
+			{
 				deck->PutCards(stack->RemoveBottom());
+				deck->ResetValetsAndAces();
+			}
+				
 
 			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
 			otherPlayersCards.push_back(players[i]->getCardNumber());
