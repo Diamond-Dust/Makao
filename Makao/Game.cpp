@@ -117,7 +117,7 @@ std::vector<int> Game::Play() {
 			}
 			else if (stack->getTopCard().Rank == cRank::King && stack->getTopCard().Suit == cSuit::Spades)	//If King of Spades, the drawStack goes backwards one player
 			{
-				i -= 2;
+				i = (i > 1) ? i-2 : playerCount + (i-2);
 			}
 
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
