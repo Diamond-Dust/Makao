@@ -39,16 +39,20 @@ void Game::SetUp() {
 }
 
 std::vector<int> Game::Play() {
-	std::vector<int> results, otherPlayersCards;
+	std::vector<int> results, otherPlayersCards, otherPlayersStops;
 	std::vector<bool> finished;
 	for (int i = 0; i < players.size(); i++)
 	{
 		results.push_back(0);
 		finished.push_back(false);
-		if(i > 0)
+		if (i > 0)
+		{
 			otherPlayersCards.push_back(players[i % players.size()]->getCardNumber());
+			otherPlayersStops.push_back(0);
+		}
 	}
-	int currentPrize = 3, playerCount = players.size(), stoppedPlayer = -1, stoppedAmount = 0;
+	stack->makeAbsoluteStoppedPlayers(players.size());
+	int currentPrize = 3, playerCount = players.size();
 	Card* drawnCard;
 	std::vector<Card*> drawnCards, lastHand, moveResult;
 
@@ -59,15 +63,20 @@ std::vector<int> Game::Play() {
 
 			if (finished[i])	//If player already finished
 				continue;
-			else if (i == stoppedPlayer && stoppedAmount != 0)	//If player was stopped
+			else if (stack->getAbsoluteStoppedPlayers()[i] != 0)	//if player is stopped
 			{
-				stoppedAmount--;
+				stack->decreaseAbsoluteStoppedPlayers(i);
+
+				otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
+				otherPlayersCards.push_back(players[i]->getCardNumber());
+
+				otherPlayersStops.erase(otherPlayersStops.begin());
+				otherPlayersStops.push_back(stack->getAbsoluteStoppedPlayers(i));
+
+				continue;
 			}
 
-			moveResult = players[i]->MakeAMove(stack, otherPlayersCards);	//Make a move
-
-			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
-			otherPlayersCards.push_back(players[i]->getCardNumber());
+			moveResult = players[i]->MakeAMove(stack, otherPlayersCards, otherPlayersStops);	//Make a move
 
 			if (moveResult.size() != 0 && !stack->TryCards(moveResult))	//Move was invalid
 			{
@@ -84,10 +93,9 @@ std::vector<int> Game::Play() {
 						players[i]->DrawCard(drawnCards);
 					stack->clearDrawStack();
 				}
-				else if (stack->getStopStack() != 0)
+				else if (stack->getStopStack() != 0)	//stop for stopStack
 				{
-					stoppedAmount = stack->getStopStack();
-					stoppedPlayer = i;
+					stack->setAbsoluteStoppedPlayer(i);
 					stack->clearStopStack();
 				}
 				else	//draw a card
@@ -114,6 +122,13 @@ std::vector<int> Game::Play() {
 
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
 				deck->PutCards(stack->RemoveBottom());
+
+			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
+			otherPlayersCards.push_back(players[i]->getCardNumber());
+
+			otherPlayersStops.erase(otherPlayersStops.begin());
+			otherPlayersStops.push_back(stack->getAbsoluteStoppedPlayers(i));
+
 		}
 	}
 

@@ -22,6 +22,19 @@ void Stack::clearStopStack() {
 	stopStack = 0;
 }
 
+void Stack::setAbsoluteStoppedPlayer(int number) {
+	absoluteStoppedPlayers[number] = stopStack-1;
+}
+
+void Stack::decreaseAbsoluteStoppedPlayers(int number) {
+	absoluteStoppedPlayers[number]--;
+}
+
+void Stack::makeAbsoluteStoppedPlayers(int number) {
+	for (int i = 0; i < number; i++)
+		absoluteStoppedPlayers.push_back(0);
+}
+
 std::vector<Card*> Stack::Clear() {
 	std::vector<Card*> cards = BottomCards;
 	BottomCards.clear();
@@ -30,10 +43,7 @@ std::vector<Card*> Stack::Clear() {
 	TopCard = Card(cRank::Joker, cSuit::None);
 	stopStack = 0;
 	drawStack = 0;
-
-	if (BottomCards.size() != 0)
-		printf("NO\n");
-
+	absoluteStoppedPlayers.clear();
 	return cards;
 }
 
@@ -44,6 +54,14 @@ std::vector<Card*> Stack::RemoveBottom() {
 	BottomCards.clear();
 	BottomCards.push_back(topCard);
 	return bottom;
+}
+
+std::vector<int> Stack::getAbsoluteStoppedPlayers() {
+	return absoluteStoppedPlayers;
+}
+
+int Stack::getAbsoluteStoppedPlayers(int which) {
+	return absoluteStoppedPlayers[which];
 }
 
 Stack::Stack() {
