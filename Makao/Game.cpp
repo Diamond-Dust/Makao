@@ -113,7 +113,6 @@ std::vector<int> Game::Play() {
 
 				if (currentPrize == 0)	//last man standing
 					break;
-				//players.erase(players.begin() + i);
 			}
 			else if (stack->getTopCard().Rank == cRank::King && stack->getTopCard().Suit == cSuit::Spades)	//If King of Spades, the drawStack goes backwards one player
 			{
