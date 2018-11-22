@@ -152,6 +152,7 @@
     <ClCompile Include="Makao.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="Supa_Player.cpp" />
     <ClCompile Include="Three.cpp" />
     <ClCompile Include="Two.cpp" />
     <ClCompile Include="Valet.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="King.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Supa_Player.h" />
     <ClInclude Include="Three.h" />
     <ClInclude Include="Two.h" />
     <ClInclude Include="Valet.h" />
