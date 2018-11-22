@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ace.cpp" />
+    <ClCompile Include="BasicBDiamondDBot.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Four.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ace.h" />
+    <ClInclude Include="BasicBDiamondDBot.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Deck.h" />

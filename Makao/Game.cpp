@@ -84,8 +84,7 @@ std::vector<int> Game::Play() {
 				players[i]->DrawCard(moveResult);
 				moveResult.clear();
 			}
-
-			if (moveResult.size() == 0)	//no move
+			else if (moveResult.size() == 0)	//no move
 			{
 				if (stack->getDrawStack() != 0)	//draw drawStack
 				{
@@ -125,7 +124,6 @@ std::vector<int> Game::Play() {
 				deck->PutCards(stack->RemoveBottom());
 				deck->ResetValetsAndAces();
 			}
-				
 
 			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
 			otherPlayersCards.push_back(players[i]->getCardNumber());
@@ -149,7 +147,8 @@ std::vector<int> Game::Play() {
 
 			break;
 		}
-	}		
+	}	
+	deck->ResetValetsAndAces();
 
 	return results;
 }

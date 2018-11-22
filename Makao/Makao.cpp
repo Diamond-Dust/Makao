@@ -3,20 +3,15 @@
 #include "Cards.h"
 #include "Game.h"
 #include "Player.h"
+#include "BasicBDiamondDBot.h"
 
 int main()
 {
-	//Stack* stack = new Stack(new Card(cRank::Queen, cSuit::Hearts));
-	//stack->TryCards(new King(cSuit::Hearts));
-	
-	//Deck* deck = new Deck;
-	//deck->Shuffle();
-	//std::vector<Card*> cards = deck->DrawCards(5);
-
 	Game* game = new Game();
 	std::vector<Player*> players;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 		players.push_back(new Player());
+	players.push_back(new BasicBDiamondDBot());
 	std::vector<int> results;
 	std::vector<int> fullResults;
 	for (int i = 0; i < 4; i++)
