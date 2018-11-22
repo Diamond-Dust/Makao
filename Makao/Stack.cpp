@@ -99,6 +99,9 @@ bool Stack::TryCards(std::vector<Card*> cards) {
 			return false;
 	}
 
+	if (desiredCard != cRank::Joker && cards.size() > 1 && cards[0]->Rank != cRank::Valet)	//If more than one desired card is put on Valet
+		return false;
+
 	if (CanBePut(TopCard, *cards[0], drawStack, desiredSuit, desiredCard, stopStack))
 	{
 		Put(cards);
@@ -108,23 +111,23 @@ bool Stack::TryCards(std::vector<Card*> cards) {
 		return false;
 }
 
-cSuit Stack::getDesiredSuit() {
+cSuit Stack::getDesiredSuit() const {
 	return desiredSuit;
 }
 
-cRank Stack::getDesiredCard() {
+cRank Stack::getDesiredCard() const {
 	return desiredCard;
 }
 
-int Stack::getDrawStack() {
+int Stack::getDrawStack() const {
 	return drawStack;
 }
 
-Card Stack::getTopCard() {
+Card Stack::getTopCard() const {
 	return TopCard;
 }
 
-int Stack::getStopStack() {
+int Stack::getStopStack() const {
 	return stopStack;
 }
 

@@ -28,10 +28,10 @@ class Stack {
 		Stack(Card* start);
 		bool TryCards(Card* card);
 		bool TryCards(std::vector<Card*> cards);
-		cSuit getDesiredSuit();
-		cRank getDesiredCard();
-		int getDrawStack();
-		Card getTopCard();
-		int getStopStack();
+		cSuit getDesiredSuit() const;
+		cRank getDesiredCard() const;
+		int getDrawStack() const;
+		Card getTopCard() const;
+		int getStopStack() const;
 		~Stack();
 };

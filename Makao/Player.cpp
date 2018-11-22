@@ -15,7 +15,7 @@ void Player::SetCards(std::vector<Card*> cards) {
 	Hand = cards;
 }
 
-std::vector<Card*> Player::MakeAMove(Stack * stack, std::vector<int> otherPlayersCards, std::vector<int> otherPlayersStops) {
+std::vector<Card*> Player::MakeAMove(const Stack * stack, std::vector<int> otherPlayersCards, std::vector<int> otherPlayersStops) {
 	std::vector<Card*> thrownCards;
 
 	for (int i = 0; i < Hand.size(); i++)

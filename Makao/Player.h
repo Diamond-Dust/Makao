@@ -16,7 +16,7 @@ protected:
 	std::vector<Card*> Hand;
 public:
 	Player();
-	virtual std::vector<Card*> MakeAMove(Stack* stack, std::vector<int> otherPlayersCards, std::vector<int> otherPlayersStops);
+	virtual std::vector<Card*> MakeAMove(const Stack* stack, std::vector<int> otherPlayersCards, std::vector<int> otherPlayersStops);
 	int getCardNumber();
 	~Player();
 };
