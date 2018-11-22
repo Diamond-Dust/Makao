@@ -16,7 +16,8 @@ void Card::Function(int& drawStack, cSuit & desiredSuit, cRank & desiredCard, in
 }
 
 bool operator< (const Card& lhs, const Card& rhs) {
-    return (unsigned int)lhs.Rank < (unsigned int)rhs.Rank;
+	if (lhs.Functional == rhs.Functional)
+    	return (unsigned int)lhs.Rank < (unsigned int)rhs.Rank;
 }
 
 bool operator> (const Card& lhs, const Card& rhs) {
@@ -32,7 +33,7 @@ bool operator>=(const Card& lhs, const Card& rhs) {
 }
 
 bool operator==(const Card& lhs, const Card& rhs) {
-    return (unsigned int)lhs.Rank == (unsigned int)rhs.Rank;
+    return lhs.Rank == rhs.Rank;
 }
 
 bool operator!=(const Card& lhs, const Card& rhs) {
