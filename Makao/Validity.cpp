@@ -72,4 +72,8 @@ bool IsFunctional(cRank rank) {
 	return ((rank == cRank::Two) || (rank == cRank::Three) || (rank == cRank::Four) || (rank == cRank::Valet) || (rank == cRank::King));
 }
 
+bool IsDraw(Card card) {
+	return (card.Rank == cRank::Two || card.Rank == cRank::Three || (card.Rank == cRank::King && (card.Suit == cSuit::Hearts || card.Suit == cSuit::Spades)));
+}
+
 
