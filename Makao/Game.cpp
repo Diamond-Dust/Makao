@@ -52,12 +52,13 @@ std::vector<int> Game::Play() {
 		}
 	}
 	stack->makeAbsoluteStoppedPlayers(players.size());
-	int currentPrize = 3, playerCount = players.size();
+	int currentPrize = 3, playerCount = players.size(), maximumTurnNumber = 10000;
 	Card* drawnCard;
 	std::vector<Card*> drawnCards, lastHand, moveResult;
 
-	while (playerCount > 1)
+	while (playerCount > 1 && maximumTurnNumber)
 	{
+		--maximumTurnNumber;	//Solution for infinite games
 		for (int i = 0; i < players.size(); i++)
 		{
 
