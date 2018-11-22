@@ -3,6 +3,7 @@
 #include "Cards.h"
 #include "Game.h"
 #include "Player.h"
+#include "Supa_Player.h"
 
 int main()
 {
@@ -15,7 +16,8 @@ int main()
 
 	Game* game = new Game();
 	std::vector<Player*> players;
-	for (int i = 0; i < 4; i++)
+	players.push_back(new Supa_Player());
+	for (int i = 0; i < 3; i++)
 		players.push_back(new Player());
 	std::vector<int> results;
 	std::vector<int> fullResults;

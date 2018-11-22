@@ -66,6 +66,9 @@
     <ClCompile Include="Card.cpp">
       <Filter>Source Files\Card Ranks</Filter>
     </ClCompile>
+    <ClCompile Include="Supa_Player.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Deck.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Card.h">
       <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Supa_Player.h">
+      <Filter>Header Files\Players</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
