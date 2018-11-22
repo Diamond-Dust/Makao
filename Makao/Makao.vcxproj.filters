@@ -69,6 +69,9 @@
     <ClCompile Include="Supa_Player.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
+    <ClCompile Include="BasicBDiamondDBot.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Deck.h">
@@ -114,6 +117,9 @@
       <Filter>Header Files\Card Ranks</Filter>
     </ClInclude>
     <ClInclude Include="Supa_Player.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicBDiamondDBot.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
   </ItemGroup>
