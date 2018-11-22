@@ -15,6 +15,14 @@ Card::Card(cRank rank, cSuit suit) : Rank(rank), Suit(suit) {
 void Card::Function(int& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
 }
 
+bool operator==(const Card& lhs, const Card& rhs) {
+    return (unsigned int)lhs.Rank == (unsigned int)rhs.Rank;
+}
+
+bool operator!=(const Card& lhs, const Card& rhs) {
+	return !(lhs == rhs);
+}
+
 Card::~Card() {
 
 }
