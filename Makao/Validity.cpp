@@ -64,6 +64,10 @@ bool CanBePut(Card first, Card next, int drawStack, cSuit desiredSuit, cRank des
 
 }
 
+bool CanBePut(const Stack* stack, Card next) {
+	return CanBePut(stack->getTopCard(), next, stack->getDrawStack(), stack->getDesiredSuit(), stack->getDesiredCard(), stack->getStopStack());
+}
+
 bool IsFunctional(cRank rank) {
 	return ((rank == cRank::Two) || (rank == cRank::Three) || (rank == cRank::Four) || (rank == cRank::Valet) || (rank == cRank::King));
 }
