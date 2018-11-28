@@ -196,6 +196,10 @@ std::vector<Card*> BasicBDiamondDBot::MakeAMove(const Stack * stack, std::vector
 
 	std::vector<CardStack> cStack = sortCardStack(PutCheckCardStack(StackHand(), stack));	//Sort into type stacks and sort check if you can play them
 
+
+	if (!cStack[0].canPut)	//If you can't put anything
+		return thrownCards;
+
 	if(CheckValetChain(stack, thrownCards, cStack))
 		return thrownCards;
 
@@ -223,10 +227,9 @@ std::vector<Card*> BasicBDiamondDBot::MakeAMove(const Stack * stack, std::vector
 				thrownCards.push_back(Hand[i]);
 			}
 			Hand.erase(Hand.begin() + i);
+			--i;
 		}
 	}
-
-
 
 	return thrownCards;
 }
