@@ -32,6 +32,7 @@ void Game::SetUp() {
 
 	stack->TryCards(startingCard);
 
+
 	for (int i = 0; i < players.size(); i++)
 	{
 		players[i]->SetCards(deck->DrawCards(startingCardNumber));
@@ -61,7 +62,6 @@ std::vector<int> Game::Play() {
 		--maximumTurnNumber;	//Solution for infinite games
 		for (int i = 0; i < players.size(); i++)
 		{
-
 			if (finished[i])	//If player already finished
 				continue;
 			else if (stack->getAbsoluteStoppedPlayers()[i] != 0)	//if player is stopped
@@ -77,6 +77,7 @@ std::vector<int> Game::Play() {
 				continue;
 			}
 
+
 			moveResult = players[i]->MakeAMove(stack, otherPlayersCards, otherPlayersStops);	//Make a move
 
 			if (moveResult.size() != 0 && !stack->TryCards(moveResult))	//Move was invalid
@@ -84,7 +85,9 @@ std::vector<int> Game::Play() {
 				players[i]->DrawCard(moveResult);
 				moveResult.clear();
 			}
-			else if (moveResult.size() == 0)	//no move
+
+
+			if (moveResult.size() == 0)	//no move
 			{
 				if (stack->getDrawStack() != 0)	//draw drawStack
 				{
@@ -119,11 +122,13 @@ std::vector<int> Game::Play() {
 				i = (i > 1) ? i-2 : playerCount + (i-2);
 			}
 
+
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
 			{
 				deck->PutCards(stack->RemoveBottom());
 				deck->ResetValetsAndAces();
 			}
+
 
 			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
 			otherPlayersCards.push_back(players[i]->getCardNumber());
@@ -141,13 +146,12 @@ std::vector<int> Game::Play() {
 			lastHand = players[i]->Hand;	//get cards from last player to deck
 			players[i]->Hand.clear();
 			deck->PutCards(lastHand);
-
-			lastHand = stack->Clear();	//get cards from stack
-			deck->PutCards(lastHand);
-
-			break;
 		}
 	}	
+
+	lastHand = stack->Clear();	//get cards from stack
+	deck->PutCards(lastHand);
+
 	deck->ResetValetsAndAces();
 
 	return results;
