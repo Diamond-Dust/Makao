@@ -21,6 +21,8 @@ void setPlayerInfoPointer(PlayerInfo* PI, Player* player, std::string name) {
 
 int main()
 {
+	std::srand(unsigned(std::time(0)));
+
 	Game* game = new Game();
 
 	std::vector<PlayerInfo> players;
@@ -36,7 +38,7 @@ int main()
 
 	std::vector<int> results;
 
-	int N = 2;
+	int N = 5;
 	while (N--)
 	{
 		random_shuffle(players.begin(), players.end());	//Take 4 random players
@@ -45,6 +47,10 @@ int main()
 
 		game->AddPlayer(currentPlayers);
 		game->SetUp();
+
+		for (int i = 0; i < 4; i++)
+			printf("%s\n", players[i].name.c_str());
+
 		results = game->Play();
 
 		for (int i = 0; i < 4; i++)

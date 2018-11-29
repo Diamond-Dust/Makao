@@ -98,18 +98,34 @@ void Deck::ResetValetsAndAces() {
 }
 
 void Deck::PutCards(Card * card) {
-	Cards.push_back(card);
-	Shuffle();
+	int randomPlace = rand() % Cards.size();
+	Card* swapper;
+	swapper = Cards[randomPlace];
+	Cards[randomPlace] = card;
+	Cards.push_back(swapper);
 }
 
 void Deck::PutCards(std::vector<Card*> cards) {
-	std::srand(unsigned(std::time(0)));
-	std::random_shuffle(cards.begin(), cards.end());
-	Cards.insert(std::begin(Cards), std::begin(cards), std::end(cards));
+	if (Cards.size() == 0)
+	{
+		Cards = cards;
+	}
+	else if (cards.size() == 1)
+	{
+		int randomPlace = rand() % Cards.size();
+		Card* swapper;
+		swapper = Cards[randomPlace];
+		Cards[randomPlace] = cards[0];
+		Cards.push_back(swapper);
+	}
+	else
+	{
+		std::random_shuffle(cards.begin(), cards.end());
+		Cards.insert(std::begin(Cards), std::begin(cards), std::end(cards));
+	}
 }
 
 void Deck::Shuffle() {
-	std::srand(unsigned(std::time(0)));
 	std::random_shuffle(Cards.begin(), Cards.end());
 }
 
