@@ -3,37 +3,64 @@
 #include "Cards.h"
 #include "Game.h"
 #include "Player.h"
+#include "AgaBot.h"
 #include "Supa_Player.h"
 #include "BasicBDiamondDBot.h"
+
+typedef struct {
+	Player* player;
+	std::string name;
+	int points;
+}PlayerInfo;
+
+void setPlayerInfoPointer(PlayerInfo* PI, Player* player, std::string name) {
+	PI->player = player;
+	PI->name = name;
+	PI->points = 0;
+}
 
 int main()
 {
 	Game* game = new Game();
-	std::vector<Player*> players;
-	for (int i = 0; i < 2; i++)
-		players.push_back(new Player());
-	players.push_back(new Supa_Player());
-	players.push_back(new BasicBDiamondDBot());
-	std::vector<int> results;
-	std::vector<int> fullResults;
-	for (int i = 0; i < 4; i++)
-		fullResults.push_back(0);
 
-	int N = 10;
+	std::vector<PlayerInfo> players;
+	for(int i=0; i<4; i++)
+		players.push_back(PlayerInfo());
+
+	setPlayerInfoPointer(&(players[0]), new Player(), "Player");
+	setPlayerInfoPointer(&(players[1]), new AgaBot(), "AgaBot");
+	setPlayerInfoPointer(&(players[2]), new Supa_Player(), "Supa_Player");
+	setPlayerInfoPointer(&(players[3]), new BasicBDiamondDBot(), "BasicBDiamondDBot");
+
+	std::vector<Player*> currentPlayers;
+
+	std::vector<int> results;
+
+	int N = 2;
 	while (N--)
 	{
-		game->AddPlayer(players);
+		random_shuffle(players.begin(), players.end());	//Take 4 random players
+		for (int i = 0; i < 4; i++)
+			currentPlayers.push_back(players[i].player);
+
+		game->AddPlayer(currentPlayers);
 		game->SetUp();
 		results = game->Play();
+
 		for (int i = 0; i < 4; i++)
-			fullResults[i] += results[i];
+			players[i].points += results[i];
 		game->Clear();
+		currentPlayers.clear();
+
 		printf("\t%d\n", N);
 	}
-	for (int i = 0; i < 2; i++)
-		printf("Player%d:\t\t%d\n", i, fullResults[i]);
-	printf("Supa_Player:\t\t%d\n", fullResults[2]);
-	printf("BasicBDiamondDBot:\t%d\n", fullResults[3]);
+
+	int maxNameLength=0;
+	for (int i = 0; i < players.size(); i++)
+		if(maxNameLength < players[i].name.length()) 
+			maxNameLength = players[i].name.length();
+	for(int i=0; i<players.size(); i++)
+		printf("%-*s\t%d\n", maxNameLength, players[i].name.c_str(), players[i].points);
 
     return 0;
 }
