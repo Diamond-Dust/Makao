@@ -158,6 +158,7 @@
     <ClCompile Include="Two.cpp" />
     <ClCompile Include="Valet.cpp" />
     <ClCompile Include="Validity.cpp" />
+    <ClCompile Include="WindowsBenchmarking.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ace.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Two.h" />
     <ClInclude Include="Valet.h" />
     <ClInclude Include="Validity.h" />
+    <ClInclude Include="WindowsBenchmarking.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

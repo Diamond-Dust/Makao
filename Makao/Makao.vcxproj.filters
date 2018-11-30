@@ -75,6 +75,9 @@
     <ClCompile Include="AgaBot.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
+    <ClCompile Include="WindowsBenchmarking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Deck.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="AgaBot.h">
       <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsBenchmarking.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
