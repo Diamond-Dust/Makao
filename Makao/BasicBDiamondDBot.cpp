@@ -1,10 +1,10 @@
 #include "BasicBDiamondDBot.h"
 
 std::vector<CardStack> BasicBDiamondDBot::StackHand() {
-	std::vector<CardStack> cStack;
+	std::vector<CardStack> cStack((int)cRank::COUNT);
 
 	for (int i = 0; i < (int)cRank::COUNT; i++)
-		cStack.push_back(makeCardStack(0, i));
+		cStack[i] = (makeCardStack(0, i));
 
 	for (int i = 0; i < Hand.size(); i++)
 	{
@@ -25,7 +25,7 @@ std::vector<CardStack> BasicBDiamondDBot::PutCheckCardStack(std::vector<CardStac
 			{
 				if (cStack[i].col[j])
 				{
-					if (CanBePut(stack->getTopCard(), Card(cStack[i].type, (cSuit)j), stack->getDrawStack(), stack->getDesiredSuit(), stack->getDesiredCard(), stack->getStopStack()))
+					if (CanBePut(stack, Card(cStack[i].type, (cSuit)j)))
 					{
 						cStack[i].canPut = true;
 					}
@@ -194,7 +194,7 @@ BasicBDiamondDBot::BasicBDiamondDBot() : Player() {
 std::vector<Card*> BasicBDiamondDBot::MakeAMove(const Stack * stack, std::vector<int> otherPlayersCards, std::vector<int> otherPlayersStops) {
 	std::vector<Card*> thrownCards;
 
-	std::vector<CardStack> cStack = sortCardStack(PutCheckCardStack(StackHand(), stack));	//Sort into type stacks and sort check if you can play them
+	std::vector<CardStack> cStack(sortCardStack(PutCheckCardStack(StackHand(), stack)));	//Sort into type stacks and sort check if you can play them
 
 
 	if (!cStack[0].canPut)	//If you can't put anything

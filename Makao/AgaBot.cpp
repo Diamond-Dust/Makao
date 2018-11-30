@@ -13,13 +13,11 @@ bool AgaBot::End(std::vector<Card*>& pCards, std::vector<Card*>& toThrow) {
 }
 
 std::vector<cSuit> AgaBot::SumBySuit() {
-	std::vector<int> sums;
-	for (int i = 0; i < (int)cSuit::COUNT; i++)
-		sums.push_back(0);
+	std::vector<int> sums((int)cSuit::COUNT, 0);
 	for (int i = 0; i < Hand.size(); i++)
 		++sums[(int)Hand[i]->Suit];
 
-	std::vector<cSuit> suits;
+	std::vector<cSuit> suits((int)cSuit::COUNT);
 	int maxIndex;
 	for (int j = 0; j < (int)cSuit::COUNT; j++) 
 	{
@@ -31,8 +29,8 @@ std::vector<cSuit> AgaBot::SumBySuit() {
 				maxIndex = i;
 			}
 		}
-		suits.push_back((cSuit)(maxIndex));
-		sums.erase(sums.begin() + maxIndex);
+		suits[j] = (cSuit)(maxIndex);
+		sums[maxIndex] = 0;
 	}
 		
 	return suits;
@@ -55,9 +53,7 @@ int AgaBot::SumDraws() {
 }
 
 int AgaBot::SumRanks() {
-	std::vector<int> ranks;
-	for (int i = 0; i < (int)cRank::COUNT; i++)
-		ranks.push_back(0);
+	std::vector<int> ranks((int)cRank::COUNT, 0);
 	for (int i = 0; i < Hand.size(); i++)
 		++ranks[(int)Hand[i]->Rank];
 	int result = 0;
@@ -81,7 +77,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 
 	int fourSum = SumFours();
 	int drawSum = SumDraws();
-
+	
 	if (ValetChain.first)	//If chaining
 	{
 		Card* chosenValet;
@@ -97,7 +93,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 			{
 				chosenValet = Hand[i];
 				valetIndex = i;
-				
+
 			}
 		}
 		if (ValetChain.first)
@@ -108,7 +104,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 		}
 		return thrownCards;
 	}
-
+	
 	std::vector<Card*> puttableCards;		//Needs to be put back inside the hand if not thrown
 	for (int i = 0; i < Hand.size(); i++)
 	{
@@ -118,6 +114,8 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 			Hand.erase(Hand.begin() + i);
 		}
 	}
+
+	
 
 	/* Sounds good, doesn't work
 	//Thanks to mzal for showing me this
@@ -135,9 +133,9 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 	std::sort(puttableCards.begin(), puttableCards.end(), cmp);	//Sort by colour sums
 	*/
 
-	for (int i = 0; i+1 < puttableCards.size(); i++)
+	for (int i = 0; i + 1 < puttableCards.size(); i++)
 	{
-		for (int j = 1; j+i < puttableCards.size(); j++)
+		for (int j = 1; j + i < puttableCards.size(); j++)
 		{
 			for (int k = 0; k < suits.size(); k++)
 			{
@@ -153,6 +151,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 		}
 	}
 
+	
 	if (End(puttableCards, thrownCards))	//Puts everything in thrown if it can
 		return thrownCards;
 
@@ -257,8 +256,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 		ValetChain.first = true;
 		ValetChain.second = chosenRank;
 		static_cast<Valet*>(thrownCards[0])->setDesiredRank(chosenRank);
-	}
-		
+	}		
 
 	Hand.insert(Hand.end(), puttableCards.begin(), puttableCards.end());
 	
