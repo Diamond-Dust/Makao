@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Players">
       <UniqueIdentifier>{98b7dcef-758f-492e-9ae7-1c0143c83e25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{ce8e9923-9411-47f2-bd49-2e8697b2b5cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{656f5496-51e1-43d1-8a4a-88e3f85c8c7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Makao.cpp">
@@ -34,9 +40,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Validity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Three.cpp">
@@ -75,8 +78,17 @@
     <ClCompile Include="AgaBot.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
+    <ClCompile Include="FileHandler.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
     <ClCompile Include="WindowsBenchmarking.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Validity.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInfo.cpp">
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +96,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Validity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cards.h">
@@ -131,8 +140,17 @@
     <ClInclude Include="AgaBot.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
+    <ClInclude Include="FileHandler.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
     <ClInclude Include="WindowsBenchmarking.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInfo.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Validity.h">
+      <Filter>Header Files\Helpers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

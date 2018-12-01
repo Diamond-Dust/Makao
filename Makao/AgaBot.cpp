@@ -1,8 +1,19 @@
 #include "AgaBot.h"
+#include "WindowsBenchmarking.h"
 
 bool AgaBot::End(std::vector<Card*>& pCards, std::vector<Card*>& toThrow) {
-	int ranks = SumRanks();
-	if(ranks == 1 && pCards.size())
+	cRank currentRank;
+	if (pCards.size())
+		currentRank = pCards[0]->Rank;
+	else
+		currentRank = Hand[0]->Rank;
+	for (int i = 1; i < pCards.size(); i++)
+		if (pCards[i]->Rank != currentRank)
+			return false;
+	for (int i = 0; i < Hand.size(); i++)
+		if (Hand[i]->Rank != currentRank)
+			return false;
+	if(pCards.size())
 	{
 		Hand.insert(Hand.end(), pCards.begin(), pCards.end());
 		toThrow.insert(toThrow.begin(), Hand.begin(), Hand.end());
@@ -13,11 +24,11 @@ bool AgaBot::End(std::vector<Card*>& pCards, std::vector<Card*>& toThrow) {
 }
 
 std::vector<cSuit> AgaBot::SumBySuit() {
-	std::vector<int> sums((int)cSuit::COUNT, 0);
+	for (int i = 0; i < (int)cSuit::COUNT; i++)
+		sums[i] = 0;
 	for (int i = 0; i < Hand.size(); i++)
 		++sums[(int)Hand[i]->Suit];
 
-	std::vector<cSuit> suits((int)cSuit::COUNT);
 	int maxIndex;
 	for (int j = 0; j < (int)cSuit::COUNT; j++) 
 	{
@@ -63,7 +74,7 @@ int AgaBot::SumRanks() {
 	return result;
 }
 
-AgaBot::AgaBot() {
+AgaBot::AgaBot() : suits((int)cSuit::COUNT), sums((int)cSuit::COUNT, 0) {
 	ValetChain.first = false;
 	ValetChain.second = cRank::Joker;
 	AceChain.first = false;
@@ -104,7 +115,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 		}
 		return thrownCards;
 	}
-	
+
 	std::vector<Card*> puttableCards;		//Needs to be put back inside the hand if not thrown
 	for (int i = 0; i < Hand.size(); i++)
 	{
@@ -114,8 +125,6 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 			Hand.erase(Hand.begin() + i);
 		}
 	}
-
-	
 
 	/* Sounds good, doesn't work
 	//Thanks to mzal for showing me this
@@ -151,7 +160,6 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 		}
 	}
 
-	
 	if (End(puttableCards, thrownCards))	//Puts everything in thrown if it can
 		return thrownCards;
 

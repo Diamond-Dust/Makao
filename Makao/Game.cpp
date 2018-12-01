@@ -6,7 +6,14 @@ Game::Game() {
 	deck->Shuffle();
 }
 
-Game::Game(std::vector<Player*> players) {
+Game::Game(int playerCount) : results(playerCount, 0), finished(playerCount, false), otherPlayersCards(playerCount - 1, 0), otherPlayersStops(playerCount - 1, 0) {
+	stack = new Stack();
+	deck = new Deck();
+	deck->Shuffle();
+	this->players.insert(std::end(this->players), std::begin(players), std::end(players));
+}
+
+Game::Game(std::vector<Player*> players) : results(players.size(), 0), finished(players.size(), false), otherPlayersCards(players.size() - 1, 0), otherPlayersStops(players.size() - 1, 0) {
 	stack = new Stack();
 	deck = new Deck();
 	deck->Shuffle();
@@ -40,18 +47,14 @@ void Game::SetUp() {
 }
 
 std::vector<int> Game::Play() {
-	std::vector<int> results, otherPlayersCards, otherPlayersStops;
-	std::vector<bool> finished;
-	for (int i = 0; i < players.size(); i++)
+	for (int i = 0; i < players.size() - 1; i++)
 	{
-		results.push_back(0);
-		finished.push_back(false);
-		if (i > 0)
-		{
-			otherPlayersCards.push_back(players[i % players.size()]->getCardNumber());
-			otherPlayersStops.push_back(0);
-		}
+		otherPlayersCards[i] = players[i % players.size()]->getCardNumber();
+		results[i] = 0;
+		finished[i] = false;
 	}
+	results[players.size() - 1] = 0;
+	finished[players.size() - 1] = false;
 	stack->makeAbsoluteStoppedPlayers(players.size());
 	int currentPrize = 3, playerCount = players.size(), maximumTurnNumber = 10000;
 	Card* drawnCard;
@@ -64,7 +67,7 @@ std::vector<int> Game::Play() {
 		{
 			if (finished[i])	//If player already finished
 				continue;
-			else if (stack->getAbsoluteStoppedPlayers()[i] != 0)	//if player is stopped
+			else if (stack->getAbsoluteStoppedPlayers(i) != 0)	//if player is stopped
 			{
 				stack->decreaseAbsoluteStoppedPlayers(i);
 
@@ -77,7 +80,6 @@ std::vector<int> Game::Play() {
 				continue;
 			}
 
-
 			moveResult = players[i]->MakeAMove(stack, otherPlayersCards, otherPlayersStops);	//Make a move
 
 			if (moveResult.size() != 0 && !stack->TryCards(moveResult))	//Move was invalid
@@ -85,7 +87,6 @@ std::vector<int> Game::Play() {
 				players[i]->DrawCard(moveResult);
 				moveResult.clear();
 			}
-
 
 			if (moveResult.size() == 0)	//no move
 			{
@@ -119,9 +120,8 @@ std::vector<int> Game::Play() {
 			}
 			else if (stack->getTopCard().Rank == cRank::King && stack->getTopCard().Suit == cSuit::Spades)	//If King of Spades, the drawStack goes backwards one player
 			{
-				i = (i > 1) ? i-2 : playerCount + (i-2);
+				i = (i > 1) ? i - 2 : playerCount + (i - 2);
 			}
-
 
 			if (deck->getCardNumber() <= stack->getDrawStack())	//not enough cards in deck
 			{
@@ -129,13 +129,11 @@ std::vector<int> Game::Play() {
 				deck->ResetValetsAndAces();
 			}
 
-
 			otherPlayersCards.erase(otherPlayersCards.begin());		//updating which card numbers does players see
 			otherPlayersCards.push_back(players[i]->getCardNumber());
 
 			otherPlayersStops.erase(otherPlayersStops.begin());
 			otherPlayersStops.push_back(stack->getAbsoluteStoppedPlayers(i));
-
 		}
 	}
 

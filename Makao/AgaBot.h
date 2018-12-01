@@ -4,7 +4,9 @@
 
 class AgaBot : public Player {
 private:
+
 	std::vector<cSuit> suits;
+	std::vector<int> sums;
 	std::pair<bool, cRank> ValetChain;
 	std::pair<bool, cSuit> AceChain;
 	bool End(std::vector<Card*>& pCards, std::vector<Card*> & toThrow);

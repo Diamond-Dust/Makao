@@ -147,11 +147,13 @@
     <ClCompile Include="BasicBDiamondDBot.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="Four.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="King.cpp" />
     <ClCompile Include="Makao.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerInfo.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Supa_Player.cpp" />
     <ClCompile Include="Three.cpp" />
@@ -167,11 +169,13 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="FileHandler.h" />
     <ClInclude Include="Four.h" />
     <ClInclude Include="FunctionalCards.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="King.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerInfo.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Supa_Player.h" />
     <ClInclude Include="Three.h" />
