@@ -9,5 +9,6 @@ class Ace : public Card {
 		Ace();
 		Ace(cSuit suit);
 		void setDesiredSuit(cSuit suit);
+		cSuit getDesiredSuit();
 		void Function(int& drawStack, cSuit& desiredSuit, cRank& desiredCard, int& stopStack);
 };

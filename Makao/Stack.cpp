@@ -1,5 +1,5 @@
 #include "Stack.h"
-#include "Validity.h"
+#include "Helpers/Validity.h"
 
 void Stack::Put(Card * next) {
 	next->Function(drawStack, desiredSuit, desiredCard, stopStack);
@@ -62,6 +62,16 @@ std::vector<int> Stack::getAbsoluteStoppedPlayers() {
 
 int Stack::getAbsoluteStoppedPlayers(int which) {
 	return absoluteStoppedPlayers[which];
+}
+
+void Stack::resetDesiredRank()
+{
+	desiredCard = cRank::Joker;
+}
+
+void Stack::resetDesiredSuit()
+{
+	desiredSuit = cSuit::None;
 }
 
 Stack::Stack() {

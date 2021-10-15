@@ -42,53 +42,59 @@
     <ClCompile Include="Stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Three.cpp">
-      <Filter>Source Files\Card Ranks</Filter>
-    </ClCompile>
-    <ClCompile Include="Two.cpp">
-      <Filter>Source Files\Card Ranks</Filter>
-    </ClCompile>
-    <ClCompile Include="Four.cpp">
-      <Filter>Source Files\Card Ranks</Filter>
-    </ClCompile>
-    <ClCompile Include="Ace.cpp">
-      <Filter>Source Files\Card Ranks</Filter>
-    </ClCompile>
-    <ClCompile Include="Valet.cpp">
-      <Filter>Source Files\Card Ranks</Filter>
-    </ClCompile>
-    <ClCompile Include="King.cpp">
-      <Filter>Source Files\Card Ranks</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Players\AgaBot.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
-    <ClCompile Include="Card.cpp">
+    <ClCompile Include="Players\BasicBDiamondDBot.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\Supa_Player.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\Player.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\FYShuffle.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\WindowsBenchmarking.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\Validity.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\FileHandler.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRanks\Ace.cpp">
       <Filter>Source Files\Card Ranks</Filter>
     </ClCompile>
-    <ClCompile Include="Supa_Player.cpp">
+    <ClCompile Include="CardRanks\Card.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRanks\Four.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRanks\King.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRanks\Three.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRanks\Two.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRanks\Valet.cpp">
+      <Filter>Source Files\Card Ranks</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\PlayerInfo.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
-    <ClCompile Include="BasicBDiamondDBot.cpp">
-      <Filter>Source Files\Players</Filter>
-    </ClCompile>
-    <ClCompile Include="AgaBot.cpp">
-      <Filter>Source Files\Players</Filter>
-    </ClCompile>
-    <ClCompile Include="FileHandler.cpp">
-      <Filter>Source Files\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowsBenchmarking.cpp">
-      <Filter>Source Files\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="Validity.cpp">
-      <Filter>Source Files\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerInfo.cpp">
-      <Filter>Source Files\Helpers</Filter>
+    <ClCompile Include="Helpers\CardToString.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,56 +107,62 @@
     <ClInclude Include="Cards.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ace.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
-    <ClInclude Include="Three.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
-    <ClInclude Include="Two.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
-    <ClInclude Include="Four.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
-    <ClInclude Include="Valet.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
-    <ClInclude Include="King.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
-    <ClInclude Include="FunctionalCards.h">
-      <Filter>Header Files\Card Ranks</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Players\AgaBot.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
-    <ClInclude Include="Card.h">
+    <ClInclude Include="Players\BasicBDiamondDBot.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRanks\Ace.h">
       <Filter>Header Files\Card Ranks</Filter>
     </ClInclude>
-    <ClInclude Include="Supa_Player.h">
+    <ClInclude Include="CardRanks\Card.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\FileHandler.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRanks\FunctionalCards.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\FYShuffle.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRanks\King.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRanks\Four.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\Supa_Player.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
-    <ClInclude Include="BasicBDiamondDBot.h">
+    <ClInclude Include="CardRanks\Three.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRanks\Two.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRanks\Valet.h">
+      <Filter>Header Files\Card Ranks</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\WindowsBenchmarking.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\Validity.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\PlayerInfo.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
-    <ClInclude Include="AgaBot.h">
-      <Filter>Header Files\Players</Filter>
-    </ClInclude>
-    <ClInclude Include="FileHandler.h">
-      <Filter>Header Files\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowsBenchmarking.h">
-      <Filter>Header Files\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerInfo.h">
-      <Filter>Header Files\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="Validity.h">
-      <Filter>Header Files\Helpers</Filter>
+    <ClInclude Include="Helpers\CardToString.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #pragma once
 #include <initializer_list>
 #include <vector>
-#include "Cards.h"
+#include "../Cards.h"
 
 class Card {
 	public:

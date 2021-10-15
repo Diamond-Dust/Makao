@@ -1,5 +1,5 @@
 #include "AgaBot.h"
-#include "WindowsBenchmarking.h"
+#include "../Helpers/WindowsBenchmarking.h"
 
 bool AgaBot::End(std::vector<Card*>& pCards, std::vector<Card*>& toThrow) {
 	cRank currentRank;
@@ -92,7 +92,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 	if (ValetChain.first)	//If chaining
 	{
 		Card* chosenValet;
-		int valetIndex;
+		int valetIndex = -1;
 		ValetChain.first = false;
 		for (int i = 0; i < Hand.size(); i++)
 		{
@@ -107,11 +107,11 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 
 			}
 		}
-		if (ValetChain.first)
+		if (ValetChain.first && valetIndex != -1)
 		{
-			Hand.erase(Hand.begin() + valetIndex);
 			static_cast<Valet*>(chosenValet)->setDesiredRank(ValetChain.second);
 			thrownCards.push_back(chosenValet);
+			Hand.erase(Hand.begin() + valetIndex);
 		}
 		return thrownCards;
 	}
@@ -234,7 +234,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 					}
 					else if (thrownCards.back()->Suit == suits[j])
 					{
-						thrownCards.insert(thrownCards.begin(), Hand[i]);
+						thrownCards.insert(thrownCards.begin()+1, Hand[i]);
 						break;
 					}
 				}
@@ -242,7 +242,7 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 			}
 		}
 	}
-	else if (!thrownCards.empty() && thrownCards[0]->Rank != cRank::Ace) //If Ace
+	else if (!thrownCards.empty() && thrownCards[0]->Rank == cRank::Ace) //If Ace
 	{
 		AceChain.first = true;
 		AceChain.second = suits[0];
@@ -250,19 +250,25 @@ std::vector<Card*> AgaBot::MakeAMove(const Stack * stack, std::vector<int> other
 	}
 	else if (!thrownCards.empty() && thrownCards[0]->Rank != cRank::Ace) //If Valet
 	{
-		cRank chosenRank;
-		for (int i = 0; i < Hand.size(); i++)
+		cRank chosenRank = cRank::Joker;
+		for (int colourIndex = 3; colourIndex >= 0; colourIndex--)
 		{
-			if (Hand[i]->Suit == suits[0])
-				chosenRank = Hand[i]->Rank;
+			for (int i = 0; i < Hand.size(); i++)
+			{
+				if ((Hand[i]->Suit == suits[colourIndex]) && (!IsFunctional(Hand[i]->Rank)))
+					chosenRank = Hand[i]->Rank;
+			}
 		}
-		for (int i = 0; i < puttableCards.size(); i++)
+		if (chosenRank != cRank::Joker) //There is some card to desire
 		{
-			if (Hand[i]->Suit == suits[0])
-				chosenRank = Hand[i]->Rank;
+			for (int i = 0; i < puttableCards.size(); i++)
+			{
+				if ((Hand[i]->Suit == suits[0]) && (!IsFunctional(Hand[i]->Rank)))
+					chosenRank = Hand[i]->Rank;
+			}
+			ValetChain.first = true;
+			ValetChain.second = chosenRank;
 		}
-		ValetChain.first = true;
-		ValetChain.second = chosenRank;
 		static_cast<Valet*>(thrownCards[0])->setDesiredRank(chosenRank);
 	}		
 

@@ -3,7 +3,7 @@
 #include <time.h>
 #include "Stack.h"
 #include "Deck.h"
-#include "Player.h"
+#include "Players/Player.h"
 
 class Game {
 	private:

@@ -12,6 +12,12 @@ void Ace::setDesiredSuit(cSuit suit) {
 		this->desiredSuit = suit;
 }
 
+cSuit Ace::getDesiredSuit()
+{
+	return this->desiredSuit;
+}
+
 void Ace::Function(int& drawStack, cSuit & desiredSuit, cRank & desiredCard, int & stopStack) {
 	desiredSuit = this->desiredSuit;
+	this->desiredSuit = cSuit::None;
 }

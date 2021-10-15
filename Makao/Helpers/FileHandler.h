@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
-#include "PlayerInfo.h"
+#include "../Players/PlayerInfo.h"
 
 class FileHandler {
 private:

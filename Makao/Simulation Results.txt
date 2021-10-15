@@ -28,3 +28,111 @@ Makao simulation with:	10 games
 	Supa_Player      	10
 	AgaBot           	7
 	BasicBDiamondDBot	16
+Makao simulation with:	10 games
+	Average time per game:	0.812994
+	Supa_Player      	6
+	BasicBDiamondDBot	1
+	Player           	2
+	AgaBot           	0
+Makao simulation with:	10 games
+	Average time per game:	0.806397
+	Player           	8
+	AgaBot           	0
+	BasicBDiamondDBot	5
+	Supa_Player      	5
+Makao simulation with:	1 games
+	Average time per game:	0.255594
+	BasicBDiamondDBot	3
+	AgaBot           	1
+	Supa_Player      	2
+	Player           	0
+Makao simulation with:	1 games
+	Average time per game:	0.160162
+	BasicBDiamondDBot	3
+	Supa_Player      	2
+	Player           	1
+	AgaBot           	0
+Makao simulation with:	1 games
+	Average time per game:	5.410814
+	Supa_Player      	3
+	Player           	0
+	AgaBot           	0
+	BasicBDiamondDBot	2
+Makao simulation with:	1 games
+	Average time per game:	0.612772
+	AgaBot           	3
+	Player           	1
+	Supa_Player      	0
+	BasicBDiamondDBot	2
+Makao simulation with:	1 games
+	Average time per game:	0.461434
+	Supa_Player      	0
+	Player           	3
+	BasicBDiamondDBot	1
+	AgaBot           	2
+Makao simulation with:	1 games
+	Average time per game:	0.380697
+	AgaBot           	0
+	BasicBDiamondDBot	1
+	Player           	3
+	Supa_Player      	2
+Makao simulation with:	1 games
+	Average time per game:	0.499583
+	Player           	2
+	AgaBot           	1
+	BasicBDiamondDBot	3
+	Supa_Player      	0
+Makao simulation with:	1 games
+	Average time per game:	1.014547
+	BasicBDiamondDBot	1
+	Player           	0
+	AgaBot           	3
+	Supa_Player      	2
+Makao simulation with:	1 games
+	Average time per game:	8.646874
+	Player           	0
+	BasicBDiamondDBot	3
+	AgaBot           	1
+	Supa_Player      	2
+Makao simulation with:	1 games
+	Average time per game:	1.207627
+	BasicBDiamondDBot	2
+	AgaBot           	0
+	Supa_Player      	3
+	Player           	1
+Makao simulation with:	1 games
+	Average time per game:	2.193654
+	Supa_Player      	1
+	Player           	0
+	AgaBot           	2
+	BasicBDiamondDBot	3
+Makao simulation with:	1 games
+	Average time per game:	2.321058
+	Supa_Player      	1
+	Player           	3
+	AgaBot           	0
+	BasicBDiamondDBot	2
+Makao simulation with:	1 games
+	Average time per game:	2.123314
+	Player           	1
+	AgaBot           	2
+	Supa_Player      	0
+	BasicBDiamondDBot	3
+Makao simulation with:	1 games
+	Average time per game:	19.507954
+	AgaBot           	0
+	Player           	3
+	BasicBDiamondDBot	2
+	Supa_Player      	1
+Makao simulation with:	1 games
+	Average time per game:	2.928454
+	AgaBot           	0
+	Supa_Player      	2
+	BasicBDiamondDBot	3
+	Player           	1
+Makao simulation with:	100 games
+	Average time per game:	2.707624
+	Supa_Player      	159
+	Player           	131
+	BasicBDiamondDBot	188
+	AgaBot           	10

@@ -1,5 +1,5 @@
 #include "Validity.h"
-#include "Cards.h"
+#include "../Cards.h"
 #include <vector>
 #include <algorithm>
 

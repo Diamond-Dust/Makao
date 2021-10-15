@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
-#include "Validity.h"
-#include "Card.h"
-#include "Stack.h"
-#include "Deck.h"
+#include "../Helpers/Validity.h"
+#include "../CardRanks/Card.h"
+#include "../Stack.h"
+#include "../Deck.h"
 
 
 class Player {

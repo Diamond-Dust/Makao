@@ -2,13 +2,15 @@
 #include "Stack.h"
 #include "Cards.h"
 #include "Game.h"
-#include "FileHandler.h"
-#include "WindowsBenchmarking.h"
-#include "PlayerInfo.h"
-#include "Player.h"
-#include "AgaBot.h"
-#include "Supa_Player.h"
-#include "BasicBDiamondDBot.h"
+#include "Helpers/FileHandler.h"
+#include "Helpers/WindowsBenchmarking.h"
+#include "Players/PlayerInfo.h"
+#include "Players/Player.h"
+#include "Players/AgaBot.h"
+#include "Players/Supa_Player.h"
+#include "Players/BasicBDiamondDBot.h"
+
+#define DEBUG
 
 int main()
 {
@@ -32,12 +34,18 @@ int main()
 
 	double time = 0;
 
-	int N = 10;
+	int N = 100;
 	for(int n = 0; n < N; n++)
 	{
 		random_shuffle(players.begin(), players.end());	//Take 4 random players
 		for (int i = 0; i < 4; i++)
 			currentPlayers.push_back(players[i].player);
+
+#ifdef DEBUG
+		printf("Players:\n");
+		for (int i = 0; i < 4; i++)
+			printf("\t%s\n", players[i].name.c_str());
+#endif
 
 		game->AddPlayer(currentPlayers);
 		game->SetUp();
@@ -54,7 +62,7 @@ int main()
 		game->Clear();
 		currentPlayers.clear();
 
-		printf("\tGra numer:\t%d\n", n);
+		printf("\tGame number:\t%d\n", n);
 	}
 
 	FileHandler FH("Simulation Results.txt", "a");

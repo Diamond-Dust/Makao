@@ -1,5 +1,5 @@
 #pragma once
-#include "Card.h"
+#include "CardRanks/Card.h"
 #include <vector>
 
 class Stack {
@@ -23,6 +23,8 @@ class Stack {
 		std::vector<Card*> RemoveBottom();
 		std::vector<int> getAbsoluteStoppedPlayers();
 		int getAbsoluteStoppedPlayers(int which);
+		void resetDesiredRank();
+		void resetDesiredSuit();
 	public:
 		Stack();
 		Stack(Card* start);

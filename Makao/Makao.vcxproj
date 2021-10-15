@@ -22,32 +22,33 @@
     <ProjectGuid>{19DE03E3-7B19-43D7-92BD-85C3F1AB4BE8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Makao</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -142,47 +143,51 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ace.cpp" />
-    <ClCompile Include="AgaBot.cpp" />
-    <ClCompile Include="BasicBDiamondDBot.cpp" />
-    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardRanks\Ace.cpp" />
+    <ClCompile Include="CardRanks\Card.cpp" />
+    <ClCompile Include="CardRanks\Four.cpp" />
+    <ClCompile Include="CardRanks\King.cpp" />
+    <ClCompile Include="CardRanks\Three.cpp" />
+    <ClCompile Include="CardRanks\Two.cpp" />
+    <ClCompile Include="CardRanks\Valet.cpp" />
     <ClCompile Include="Deck.cpp" />
-    <ClCompile Include="FileHandler.cpp" />
-    <ClCompile Include="Four.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="King.cpp" />
+    <ClCompile Include="Helpers\CardToString.cpp" />
+    <ClCompile Include="Helpers\FileHandler.cpp" />
+    <ClCompile Include="Helpers\FYShuffle.cpp" />
+    <ClCompile Include="Helpers\Validity.cpp" />
+    <ClCompile Include="Helpers\WindowsBenchmarking.cpp" />
     <ClCompile Include="Makao.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerInfo.cpp" />
+    <ClCompile Include="Players\AgaBot.cpp" />
+    <ClCompile Include="Players\BasicBDiamondDBot.cpp" />
+    <ClCompile Include="Players\Player.cpp" />
+    <ClCompile Include="Players\PlayerInfo.cpp" />
+    <ClCompile Include="Players\Supa_Player.cpp" />
     <ClCompile Include="Stack.cpp" />
-    <ClCompile Include="Supa_Player.cpp" />
-    <ClCompile Include="Three.cpp" />
-    <ClCompile Include="Two.cpp" />
-    <ClCompile Include="Valet.cpp" />
-    <ClCompile Include="Validity.cpp" />
-    <ClCompile Include="WindowsBenchmarking.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ace.h" />
-    <ClInclude Include="AgaBot.h" />
-    <ClInclude Include="BasicBDiamondDBot.h" />
-    <ClInclude Include="Card.h" />
+    <ClInclude Include="CardRanks\Ace.h" />
+    <ClInclude Include="CardRanks\Card.h" />
+    <ClInclude Include="CardRanks\Four.h" />
+    <ClInclude Include="CardRanks\FunctionalCards.h" />
+    <ClInclude Include="CardRanks\King.h" />
+    <ClInclude Include="CardRanks\Three.h" />
+    <ClInclude Include="CardRanks\Two.h" />
+    <ClInclude Include="CardRanks\Valet.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Deck.h" />
-    <ClInclude Include="FileHandler.h" />
-    <ClInclude Include="Four.h" />
-    <ClInclude Include="FunctionalCards.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="King.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerInfo.h" />
+    <ClInclude Include="Helpers\CardToString.h" />
+    <ClInclude Include="Helpers\FileHandler.h" />
+    <ClInclude Include="Helpers\FYShuffle.h" />
+    <ClInclude Include="Helpers\Validity.h" />
+    <ClInclude Include="Helpers\WindowsBenchmarking.h" />
+    <ClInclude Include="Players\AgaBot.h" />
+    <ClInclude Include="Players\BasicBDiamondDBot.h" />
+    <ClInclude Include="Players\Player.h" />
+    <ClInclude Include="Players\PlayerInfo.h" />
+    <ClInclude Include="Players\Supa_Player.h" />
     <ClInclude Include="Stack.h" />
-    <ClInclude Include="Supa_Player.h" />
-    <ClInclude Include="Three.h" />
-    <ClInclude Include="Two.h" />
-    <ClInclude Include="Valet.h" />
-    <ClInclude Include="Validity.h" />
-    <ClInclude Include="WindowsBenchmarking.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
